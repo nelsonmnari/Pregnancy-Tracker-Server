@@ -6,7 +6,15 @@ require("dotenv").config();
 const app = express();
 connectDB();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://pregnancy-tracker-client.vercel.app",
+      "http://localhost:5173",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // Routes
